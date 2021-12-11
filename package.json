@@ -38,6 +38,7 @@
     "react": "^16.8.6",
     "react-docgen": "^4.1.1",
     "react-dom": "^16.8.6",
+    "react-sigplot": "^0.1.16",
     "styled-jsx": "^3.2.1",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^2.3.0",

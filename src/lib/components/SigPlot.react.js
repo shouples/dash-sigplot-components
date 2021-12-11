@@ -1,61 +1,83 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {
+    SigPlot as ReactSigPlot,
+    ArrayLayer,
+} from 'react-sigplot';
 
 /**
- * ExampleComponent is an example component.
- * It takes a property, `label`, and
- * displays it.
- * It renders an input with the property `value`
- * which is editable by the user.
+ * Combination SigPlot+ArrayLayer component for react-sigplot/Sigplot.
  */
 export default class SigPlot extends Component {
     render() {
-        const {id, label, setProps, value} = this.props;
+        const {
+            id,
+            data,
+            height,
+            width,
+            display,
+            style,
+            options,
+            arrayOptions,
+            arrayLayerOptions,
+        } = this.props;
 
         return (
             <div id={id}>
-                ExampleComponent: {label}&nbsp;
-                <input
-                    value={value}
-                    onChange={
-                        /*
-                         * Send the new value to the parent component.
-                         * setProps is a prop that is automatically supplied
-                         * by dash's front-end ("dash-renderer").
-                         * In a Dash app, this will update the component's
-                         * props and send the data back to the Python Dash
-                         * app server if a callback uses the modified prop as
-                         * Input or State.
-                         */
-                        e => setProps({ value: e.target.value })
-                    }
-                />
+                <ReactSigPlot
+                    height={height}
+                    width={width}
+                    display={display}
+                    styles={style}
+                    options={options}
+                >
+                    <ArrayLayer
+                        data={data}
+                        options={arrayOptions}
+                        layerOptions={arrayLayerOptions}
+                    />
+                </ReactSigPlot>
             </div>
         );
     }
 }
 
-SigPlot.defaultProps = {};
+SigPlot.defaultProps = {
+    height: 300,
+    width: 300,
+    display: 'inline-block',
+    options: {
+      all: true,
+      expand: true,
+      autol: 100,
+      autohide_panbars: true,
+    },
+};
 
 SigPlot.propTypes = {
-    /**
-     * The ID used to identify this component in Dash callbacks.
-     */
-    id: PropTypes.string,
 
+    /** Array of `Number` types to render in Arraylayer*/
+    data: PropTypes.arrayOf(PropTypes.number), // eslint-disable-line react/no-unused-prop-types
+    /** Header options for `data` for the Arraylayer */
+    arrayOptions: PropTypes.object, // eslint-disable-line react/no-unused-prop-types
     /**
-     * A label that will be printed when this component is rendered.
+     * Options about the Arraylayer
+     * @see See [sigplot.layer1d](https://github.com/LGSInnovations/sigplot/blob/master/js/sigplot.layer1d.js)
+     * @see See [sigplot.layer2d](https://github.com/LGSInnovations/sigplot/blob/master/js/sigplot.layer2d.js)
      */
-    label: PropTypes.string.isRequired,
+    arrayLayerOptions: PropTypes.object, // eslint-disable-line react/no-unused-prop-types
 
+    /** Height of the SigPlot div */
+    height: PropTypes.number,
+    /** Width of the SigPlot div */
+    width: PropTypes.number,
+    /** CSS 'display' property for the SigPlot*/
+    display: PropTypes.string,
+    /** Styles object for any other CSS styles on the SigPlot div */
+    style: PropTypes.object,
     /**
-     * The value displayed in the input.
+     * SigPlot plot-level options
+     * @see See [sigplot.Plot Docs](http://sigplot.lgsinnovations.com/html/doc/sigplot.Plot.html)
      */
-    value: PropTypes.string,
-
-    /**
-     * Dash-assigned callback that should be called to report property changes
-     * to Dash, to make them available for callbacks.
-     */
-    setProps: PropTypes.func
+    options: PropTypes.object,
 };
