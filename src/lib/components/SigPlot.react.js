@@ -55,9 +55,18 @@ SigPlot.defaultProps = {
 };
 
 SigPlot.propTypes = {
+    /**
+     * The ID used to identify this component in Dash callbacks.
+     */
+    id: PropTypes.string,
 
-    /** Array of `Number` types to render in Arraylayer*/
-    data: PropTypes.arrayOf(PropTypes.number), // eslint-disable-line react/no-unused-prop-types
+    /** 1D/2D Array of `Number` types to render in Arraylayer*/
+    data: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.arrayOf(PropTypes.number), 
+        ])
+    ),
     /** Header options for `data` for the Arraylayer */
     arrayOptions: PropTypes.object, // eslint-disable-line react/no-unused-prop-types
     /**

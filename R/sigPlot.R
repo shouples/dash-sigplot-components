@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-sigPlot <- function(id=NULL, label=NULL, value=NULL) {
+sigPlot <- function(id=NULL, arrayLayerOptions=NULL, arrayOptions=NULL, data=NULL, display=NULL, height=NULL, options=NULL, style=NULL, width=NULL) {
     
-    props <- list(id=id, label=label, value=value)
+    props <- list(id=id, arrayLayerOptions=arrayLayerOptions, arrayOptions=arrayOptions, data=data, display=display, height=height, options=options, style=style, width=width)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ sigPlot <- function(id=NULL, label=NULL, value=NULL) {
         props = props,
         type = 'SigPlot',
         namespace = 'dash_sigplot_components',
-        propNames = c('id', 'label', 'value'),
+        propNames = c('id', 'arrayLayerOptions', 'arrayOptions', 'data', 'display', 'height', 'options', 'style', 'width'),
         package = 'dashSigplotComponents'
         )
 

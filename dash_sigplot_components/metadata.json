@@ -1,6 +1,6 @@
 {
   "src/lib/components/SigPlot.react.js": {
-    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.", 
+    "description": "Combination SigPlot+ArrayLayer component for react-sigplot/Sigplot.", 
     "displayName": "SigPlot", 
     "methods": [], 
     "props": {
@@ -11,26 +11,91 @@
         "required": false, 
         "description": "The ID used to identify this component in Dash callbacks."
       }, 
-      "label": {
+      "data": {
         "type": {
-          "name": "string"
+          "name": "arrayOf", 
+          "value": {
+            "name": "union", 
+            "value": [
+              {
+                "name": "number"
+              }, 
+              {
+                "name": "arrayOf", 
+                "value": {
+                  "name": "number"
+                }
+              }
+            ]
+          }
         }, 
-        "required": true, 
-        "description": "A label that will be printed when this component is rendered."
+        "required": false, 
+        "description": "1D/2D Array of `Number` types to render in Arraylayer"
       }, 
-      "value": {
+      "arrayOptions": {
+        "type": {
+          "name": "object"
+        }, 
+        "required": false, 
+        "description": "Header options for `data` for the Arraylayer"
+      }, 
+      "arrayLayerOptions": {
+        "type": {
+          "name": "object"
+        }, 
+        "required": false, 
+        "description": "Options about the Arraylayer\n@see See [sigplot.layer1d](https://github.com/LGSInnovations/sigplot/blob/master/js/sigplot.layer1d.js)\n@see See [sigplot.layer2d](https://github.com/LGSInnovations/sigplot/blob/master/js/sigplot.layer2d.js)"
+      }, 
+      "height": {
+        "type": {
+          "name": "number"
+        }, 
+        "required": false, 
+        "description": "Height of the SigPlot div", 
+        "defaultValue": {
+          "value": "300", 
+          "computed": false
+        }
+      }, 
+      "width": {
+        "type": {
+          "name": "number"
+        }, 
+        "required": false, 
+        "description": "Width of the SigPlot div", 
+        "defaultValue": {
+          "value": "300", 
+          "computed": false
+        }
+      }, 
+      "display": {
         "type": {
           "name": "string"
         }, 
         "required": false, 
-        "description": "The value displayed in the input."
+        "description": "CSS 'display' property for the SigPlot", 
+        "defaultValue": {
+          "value": "'inline-block'", 
+          "computed": false
+        }
       }, 
-      "setProps": {
+      "style": {
         "type": {
-          "name": "func"
+          "name": "object"
         }, 
         "required": false, 
-        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+        "description": "Styles object for any other CSS styles on the SigPlot div"
+      }, 
+      "options": {
+        "type": {
+          "name": "object"
+        }, 
+        "required": false, 
+        "description": "SigPlot plot-level options\n@see See [sigplot.Plot Docs](http://sigplot.lgsinnovations.com/html/doc/sigplot.Plot.html)", 
+        "defaultValue": {
+          "value": "{\n  all: true,\n  expand: true,\n  autol: 100,\n  autohide_panbars: true,\n}", 
+          "computed": false
+        }
       }
     }
   }
