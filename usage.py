@@ -49,8 +49,12 @@ sample_data = [[0.28837248, 0.93819596, 0.20160536, 0.51790428, 0.90357348,
 
 app.layout = html.Div([
     dash_sigplot_components.SigPlot(
+        children=[
+            dash_sigplot_components.ArrayLayer(
+                data=sample_data,
+            )
+        ],
         id='sigplot',
-        data=sample_data,
         height=640,
         width=480,
     ),

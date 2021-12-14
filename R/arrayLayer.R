@@ -1,16 +1,16 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-sigPlot <- function(id=NULL, display=NULL, height=NULL, options=NULL, style=NULL, width=NULL) {
+arrayLayer <- function(id=NULL, data=NULL, layerOptions=NULL, options=NULL) {
     
-    props <- list(id=id, display=display, height=height, options=options, style=style, width=width)
+    props <- list(id=id, data=data, layerOptions=layerOptions, options=options)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
     component <- list(
         props = props,
-        type = 'SigPlot',
+        type = 'ArrayLayer',
         namespace = 'dash_sigplot_components',
-        propNames = c('id', 'display', 'height', 'options', 'style', 'width'),
+        propNames = c('id', 'data', 'layerOptions', 'options'),
         package = 'dashSigplotComponents'
         )
 

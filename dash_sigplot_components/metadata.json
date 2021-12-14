@@ -1,7 +1,7 @@
 {
-  "src/lib/components/SigPlot.react.js": {
-    "description": "Combination SigPlot+ArrayLayer component for react-sigplot/Sigplot.", 
-    "displayName": "SigPlot", 
+  "src/lib/components/ArrayLayer.react.js": {
+    "description": "ArrayLayer component for react-sigplot/ArrayLayer.", 
+    "displayName": "ArrayLayer", 
     "methods": [], 
     "props": {
       "id": {
@@ -32,19 +32,33 @@
         "required": false, 
         "description": "1D/2D Array of `Number` types to render in Arraylayer"
       }, 
-      "arrayOptions": {
+      "options": {
         "type": {
           "name": "object"
         }, 
         "required": false, 
         "description": "Header options for `data` for the Arraylayer"
       }, 
-      "arrayLayerOptions": {
+      "layerOptions": {
         "type": {
           "name": "object"
         }, 
         "required": false, 
         "description": "Options about the Arraylayer\n@see See [sigplot.layer1d](https://github.com/LGSInnovations/sigplot/blob/master/js/sigplot.layer1d.js)\n@see See [sigplot.layer2d](https://github.com/LGSInnovations/sigplot/blob/master/js/sigplot.layer2d.js)"
+      }
+    }
+  }, 
+  "src/lib/components/SigPlot.react.js": {
+    "description": "SigPlot component for react-sigplot/Sigplot.", 
+    "displayName": "SigPlot", 
+    "methods": [], 
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        }, 
+        "required": false, 
+        "description": "The ID used to identify this component in Dash callbacks."
       }, 
       "height": {
         "type": {
