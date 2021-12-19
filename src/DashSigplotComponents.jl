@@ -6,6 +6,8 @@ const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
 const version = "0.0.1"
 
 include("jl/arraylayer.jl")
+include("jl/hreflayer.jl")
+include("jl/pipelayer.jl")
 include("jl/sigplot.jl")
 
 function __init__()

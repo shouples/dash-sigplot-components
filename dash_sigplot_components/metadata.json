@@ -1,113 +1,215 @@
 {
   "src/lib/components/ArrayLayer.react.js": {
-    "description": "ArrayLayer component for react-sigplot/ArrayLayer.", 
-    "displayName": "ArrayLayer", 
-    "methods": [], 
+    "description": "ArrayLayer component for react-sigplot/ArrayLayer.",
+    "displayName": "ArrayLayer",
+    "methods": [],
     "props": {
       "id": {
         "type": {
           "name": "string"
-        }, 
-        "required": false, 
+        },
+        "required": false,
         "description": "The ID used to identify this component in Dash callbacks."
-      }, 
+      },
       "data": {
         "type": {
-          "name": "arrayOf", 
+          "name": "arrayOf",
           "value": {
-            "name": "union", 
+            "name": "union",
             "value": [
               {
                 "name": "number"
-              }, 
+              },
               {
-                "name": "arrayOf", 
+                "name": "arrayOf",
                 "value": {
                   "name": "number"
                 }
               }
             ]
           }
-        }, 
-        "required": false, 
+        },
+        "required": false,
         "description": "1D/2D Array of `Number` types to render in Arraylayer"
-      }, 
+      },
       "options": {
         "type": {
           "name": "object"
-        }, 
-        "required": false, 
+        },
+        "required": false,
         "description": "Header options for `data` for the Arraylayer"
-      }, 
+      },
       "layerOptions": {
         "type": {
           "name": "object"
-        }, 
-        "required": false, 
+        },
+        "required": false,
         "description": "Options about the Arraylayer\n@see See [sigplot.layer1d](https://github.com/LGSInnovations/sigplot/blob/master/js/sigplot.layer1d.js)\n@see See [sigplot.layer2d](https://github.com/LGSInnovations/sigplot/blob/master/js/sigplot.layer2d.js)"
       }
     }
-  }, 
-  "src/lib/components/SigPlot.react.js": {
-    "description": "SigPlot component for react-sigplot/Sigplot.", 
-    "displayName": "SigPlot", 
-    "methods": [], 
+  },
+  "src/lib/components/HrefLayer.react.js": {
+    "description": "HrefLayer component for react-sigplot/HrefLayer.",
+    "displayName": "HrefLayer",
+    "methods": [],
     "props": {
       "id": {
         "type": {
           "name": "string"
-        }, 
-        "required": false, 
+        },
+        "required": false,
         "description": "The ID used to identify this component in Dash callbacks."
-      }, 
-      "height": {
-        "type": {
-          "name": "number"
-        }, 
-        "required": false, 
-        "description": "Height of the SigPlot div", 
-        "defaultValue": {
-          "value": "300", 
-          "computed": false
-        }
-      }, 
-      "width": {
-        "type": {
-          "name": "number"
-        }, 
-        "required": false, 
-        "description": "Width of the SigPlot div", 
-        "defaultValue": {
-          "value": "300", 
-          "computed": false
-        }
-      }, 
-      "display": {
+      },
+      "href": {
         "type": {
           "name": "string"
-        }, 
-        "required": false, 
-        "description": "CSS 'display' property for the SigPlot", 
-        "defaultValue": {
-          "value": "'inline-block'", 
-          "computed": false
-        }
-      }, 
-      "style": {
+        },
+        "required": false,
+        "description": "URI to BLUEFILE or MATFILE to plot\n\nThis can either be local 'file:///path/to/file' or\nremote 'http://myfile.com/file.tmp'\n\nKeep in mind that if the file is on a different domain,\nmost browsers/web-servers will block cross origin requests.\n\nSince this layer doesn't take any numeric data,\nwe are omitting the use of the `data` prop here."
+      },
+      "onload": {
         "type": {
-          "name": "object"
-        }, 
-        "required": false, 
-        "description": "Styles object for any other CSS styles on the SigPlot div"
-      }, 
+          "name": "func"
+        },
+        "required": false,
+        "description": "Callback that executes once the file loads"
+      },
       "options": {
         "type": {
           "name": "object"
-        }, 
-        "required": false, 
-        "description": "SigPlot plot-level options\n@see See [sigplot.Plot Docs](http://sigplot.lgsinnovations.com/html/doc/sigplot.Plot.html)", 
+        },
+        "required": false,
+        "description": "Layer options"
+      }
+    }
+  },
+  "src/lib/components/PipeLayer.react.js": {
+    "description": "PipeLayer component for react-sigplot/PipeLayer.",
+    "displayName": "PipeLayer",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "data": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "union",
+            "value": [
+              {
+                "name": "number"
+              },
+              {
+                "name": "arrayOf",
+                "value": {
+                  "name": "number"
+                }
+              }
+            ]
+          }
+        },
+        "required": false,
+        "description": "1D/2D Array of `Number` types to render in PipeLayer"
+      },
+      "options": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Header options for `data` for the PipeLayer"
+      },
+      "layerOptions": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Options about the PipeLayer\n@see See [sigplot.layer1d](https://github.com/LGSInnovations/sigplot/blob/master/js/sigplot.layer1d.js)\n@see See [sigplot.layer2d](https://github.com/LGSInnovations/sigplot/blob/master/js/sigplot.layer2d.js)"
+      }
+    }
+  },
+  "src/lib/components/SigPlot.react.js": {
+    "description": "SigPlot component for react-sigplot/Sigplot.",
+    "displayName": "SigPlot",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "children": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "any"
+            },
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "any"
+              }
+            }
+          ]
+        },
+        "required": false,
+        "description": "react-sigplot *Layer elements contained within the SigPlot."
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Height of the SigPlot div",
         "defaultValue": {
-          "value": "{\n  all: true,\n  expand: true,\n  autol: 100,\n  autohide_panbars: true,\n}", 
+          "value": "300",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Width of the SigPlot div",
+        "defaultValue": {
+          "value": "300",
+          "computed": false
+        }
+      },
+      "display": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "CSS 'display' property for the SigPlot",
+        "defaultValue": {
+          "value": "'inline-block'",
+          "computed": false
+        }
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Styles object for any other CSS styles on the SigPlot div"
+      },
+      "options": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "SigPlot plot-level options\n@see See [sigplot.Plot Docs](http://sigplot.lgsinnovations.com/html/doc/sigplot.Plot.html)",
+        "defaultValue": {
+          "value": "{\n  all: true,\n  expand: true,\n  autol: 100,\n  autohide_panbars: true,\n}",
           "computed": false
         }
       }

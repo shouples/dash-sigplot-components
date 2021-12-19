@@ -10,8 +10,8 @@ import {
 export default class SigPlot extends Component {
     render() {
         const {
-            id,
             children,
+            id,
             height,
             width,
             display,
@@ -19,6 +19,19 @@ export default class SigPlot extends Component {
             options,
         } = this.props;
 
+        /*
+            map SigPlot properties into *Layer components
+            while skipping the <div> wrappers
+        */
+        const childElements = React.Children.map(
+            children, child => (
+                console.log(child)
+                // React.cloneElement(
+                //     child.props
+                // )
+            )
+        );
+        
         return (
             <div id={id}>
                 <ReactSigPlot
@@ -52,6 +65,14 @@ SigPlot.propTypes = {
      * The ID used to identify this component in Dash callbacks.
      */
     id: PropTypes.string,
+
+    /**
+     * react-sigplot *Layer elements contained within the SigPlot.
+     */
+    children: PropTypes.oneOfType([
+        PropTypes.any,
+        PropTypes.arrayOf(PropTypes.any),
+    ]),
 
     /** Height of the SigPlot div */
     height: PropTypes.number,

@@ -1,7 +1,7 @@
-import dash_sigplot_components
+import dash_sigplot_components as dsc
+
+from dash import html, Input, Output
 import dash
-from dash.dependencies import Input, Output
-import dash_html_components as html
 
 
 app = dash.Dash(__name__)
@@ -47,18 +47,20 @@ sample_data = [[0.28837248, 0.93819596, 0.20160536, 0.51790428, 0.90357348,
         0.01386902, 0.47212255, 0.91938446, 0.39911753, 0.82696246,
         0.86230045, 0.57835003, 0.61228158, 0.94639308, 0.88844018]]
 
-app.layout = html.Div([
-    dash_sigplot_components.SigPlot(
-        children=[
-            dash_sigplot_components.ArrayLayer(
-                data=sample_data,
-            )
-        ],
-        id='sigplot',
-        height=640,
-        width=480,
-    ),
-])
+app.layout =  html.Div(
+    children=[
+        dsc.SigPlot(
+            children=[
+                dsc.ArrayLayer(
+                    data=sample_data,
+                )
+            ],
+            id='sigplot',
+            height=640,
+            width=480,
+        ),
+    ]
+)
 
 
 if __name__ == '__main__':

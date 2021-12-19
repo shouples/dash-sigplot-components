@@ -9,6 +9,9 @@ SigPlot component for react-sigplot/Sigplot.
 
 Keyword arguments:
 
+- children (boolean | number | string | dict | list | list of boolean | number | string | dict | lists; optional):
+    react-sigplot *Layer elements contained within the SigPlot.
+
 - id (string; optional):
     The ID used to identify this component in Dash callbacks.
 
@@ -28,12 +31,12 @@ Keyword arguments:
 - width (number; default 300):
     Width of the SigPlot div."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, height=Component.UNDEFINED, width=Component.UNDEFINED, display=Component.UNDEFINED, style=Component.UNDEFINED, options=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'display', 'height', 'options', 'style', 'width']
+    def __init__(self, children=None, id=Component.UNDEFINED, height=Component.UNDEFINED, width=Component.UNDEFINED, display=Component.UNDEFINED, style=Component.UNDEFINED, options=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'display', 'height', 'options', 'style', 'width']
         self._type = 'SigPlot'
         self._namespace = 'dash_sigplot_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'display', 'height', 'options', 'style', 'width']
+        self.available_properties = ['children', 'id', 'display', 'height', 'options', 'style', 'width']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
@@ -43,4 +46,4 @@ Keyword arguments:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
-        super(SigPlot, self).__init__(**args)
+        super(SigPlot, self).__init__(children=children, **args)

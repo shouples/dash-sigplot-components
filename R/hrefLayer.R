@@ -1,16 +1,16 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-sigPlot <- function(children=NULL, id=NULL, display=NULL, height=NULL, options=NULL, style=NULL, width=NULL) {
+hrefLayer <- function(id=NULL, href=NULL, onload=NULL, options=NULL) {
     
-    props <- list(children=children, id=id, display=display, height=height, options=options, style=style, width=width)
+    props <- list(id=id, href=href, onload=onload, options=options)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
     component <- list(
         props = props,
-        type = 'SigPlot',
+        type = 'HrefLayer',
         namespace = 'dash_sigplot_components',
-        propNames = c('children', 'id', 'display', 'height', 'options', 'style', 'width'),
+        propNames = c('id', 'href', 'onload', 'options'),
         package = 'dashSigplotComponents'
         )
 

@@ -1,6 +1,10 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 export(ArrayLayer)
+export(HrefLayer)
+export(PipeLayer)
 export(SigPlot)
 export(arrayLayer)
+export(hrefLayer)
+export(pipeLayer)
 export(sigPlot)

@@ -10,11 +10,13 @@ SigPlot component for react-sigplot/Sigplot.
 }
 
 \usage{
-sigPlot(id=NULL, display=NULL, height=NULL, options=NULL,
-style=NULL, width=NULL)
+sigPlot(children=NULL, id=NULL, display=NULL, height=NULL,
+options=NULL, style=NULL, width=NULL)
 }
 
 \arguments{
+\item{children}{Logical | numeric | character | named list | unnamed list | list of logical | numeric | character | named list | unnamed lists. react-sigplot *Layer elements contained within the SigPlot.}
+
 \item{id}{Character. The ID used to identify this component in Dash callbacks.}
 
 \item{display}{Character. CSS 'display' property for the SigPlot}
